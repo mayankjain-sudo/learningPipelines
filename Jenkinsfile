@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 checkout scm
-                ls -altr hello.sh 
+                ls -altr 
             }
         }
         stage('Test') {
