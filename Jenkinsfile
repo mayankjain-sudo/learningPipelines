@@ -6,19 +6,19 @@ pipeline {
             steps {
                 echo 'Building..'
                 checkout scm
-                ls -altr 
+                sh "ls -altr" 
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                cat hello.sh
+                sh "cat hello.sh"
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh hello.sh
+                sh "./hello.sh"
             }
         }
     }
