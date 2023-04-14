@@ -3,11 +3,13 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                echo "Code checkout"
                 checkout scm
-                echo "Hello World!"
+            }
+        }
+        stage('Test'){
+            steps {
                 sh "ls"
-                sh "hostname"
-                sh "uptime"
             }
         }
     }
