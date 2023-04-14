@@ -1,24 +1,13 @@
 pipeline {
-    agent any
-
+    agent { label 'master' }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                echo 'Building..'
                 checkout scm
-                sh "ls -altr" 
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-                sh "cat hello.sh"
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-                sh "./hello.sh"
+                echo "Hello World!"
+                sh "echo Hello from the shell"
+                sh "hostname"
+                sh "uptime"
             }
         }
     }
