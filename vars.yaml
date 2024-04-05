@@ -1,0 +1,11 @@
+dev:
+  env: dev
+  app: himalayan
+
+uat:
+  env: uat
+  app: bmw
+
+main:
+  env: prod
+  app: tiger
