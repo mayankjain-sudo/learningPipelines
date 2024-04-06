@@ -17,6 +17,8 @@ pipeline {
                     def data = readYaml file: 'vars.yaml'
                     echo "Branch name: ${BRANCH_NAME}"
                     echo "Values: ${data[BRANCH_NAME]}"
+                }
+            }
         }
         stage('Test'){
             steps {
