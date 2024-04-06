@@ -18,6 +18,8 @@ pipeline {
                     def data = readYaml (file: 'vars.yaml')
                     echo "Branch name: ${BRANCH_NAME}"
                     echo "Values: ${data[BRANCH_NAME]}"
+                    def app = $data[BRANCH_NAME]['app']
+                    echo  "App Name: ${app}"
                 }
             }
         }
