@@ -20,7 +20,7 @@ pipeline {
                     echo "Values: ${data[BRANCH_NAME]}"
                     def app = data[BRANCH_NAME]['app']
                     echo  "App Name: ${app}"
-                    def appenv = data[BRANCH_NAME]['environment']
+                    def appenv = data[BRANCH_NAME]['env']
                     env.APPENV=appenv
                     echo "Environment: ${APPENV}"
                 }
