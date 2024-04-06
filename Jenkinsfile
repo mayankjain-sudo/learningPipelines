@@ -3,14 +3,21 @@ pipeline {
     environment {
         BRANCH_NAME = "${env.BRANCH_NAME}"
     }
-    environment {
-        BRANCH_NAME = "${env.BRANCH_NAME}"
-    }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                // Get some code from a GitHub repository
-               echo "Hello Jenkins"
+                echo "Code checkout"
+                checkout scm
+            }
+        }
+        stage('Read variables'){
+            steps{
+                script{
+                    // Get the value of a variable 
+                    def data = readYaml file: 'vars.yaml'
+                    echo "Branch name: ${BRANCH_NAME}"
+                    echo "Values: ${data[BRANCH_NAME]}"
+                }
             }
         }
     }
